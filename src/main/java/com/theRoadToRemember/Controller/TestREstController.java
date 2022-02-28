@@ -15,7 +15,6 @@ public class TestREstController {
     @Autowired
     private  UserServiceImpl userService;
 
-
     @GetMapping("/getUser/{id}")
     public User getUserByID(@PathVariable Long id){
         return userService.getUserByID(id);
