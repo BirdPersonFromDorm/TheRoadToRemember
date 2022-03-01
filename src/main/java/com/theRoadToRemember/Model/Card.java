@@ -18,7 +18,9 @@ public class Card {
     private Long cardId;
     private Long rating;
     @ManyToOne
+    @JoinColumn(name = "en_word_id")
     private EnWord enWord;
     @ManyToOne
+    @JoinColumn(name = "ru_word_id")
     private RuWord ruWord;
 }
