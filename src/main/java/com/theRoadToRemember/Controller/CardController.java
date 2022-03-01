@@ -5,9 +5,9 @@ import com.theRoadToRemember.Mapper.CardMapper;
 import com.theRoadToRemember.Model.Card;
 import com.theRoadToRemember.Service.CardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,4 +22,11 @@ public class CardController {
         return cardMapper.toDTO(card);
     }
 
+    @PostMapping("/card")
+    public ResponseEntity<?> saveCard(@RequestBody CardDTO cardDTO){
+        Card card = cardMapper.toEntity(cardDTO);
+        card = cardService.addCard(card);
+        cardDTO = cardMapper.toDTO(card);
+        return new ResponseEntity<>(cardDTO, HttpStatus.CREATED);
+    }
 }

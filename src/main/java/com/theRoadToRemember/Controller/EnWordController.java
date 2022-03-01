@@ -19,11 +19,11 @@ public class EnWordController {
     private final EnWordService enWordService;
 
     private final EnWordMapper enWordMapper;
-//
-//    @GetMapping("/getEnWord/{id}")
-//    public EnWordDTO getEnWordByID(@PathVariable Long id){
-//        EnWord enWordByID = enWordService.getEnWord(id);
-//        return enWordMapper.toDTO(enWordByID);
-//    }
+
+    @GetMapping("/getEnWord/{id}")
+    public EnWordDTO getEnWordByID(@PathVariable Long id){
+        EnWord enWordByID = enWordService.getEnWord(id);
+        return enWordMapper.toDTO(enWordByID);
+    }
 
 }

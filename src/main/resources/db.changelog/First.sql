@@ -47,7 +47,19 @@ create table card
     rating     int,
     ru_word_id int,
     en_word_id int,
+    image_id   int,
     primary key (card_id)
+);
+
+create table image
+(
+    image_id          int not null auto_increment,
+    name              varchar(45),
+    original_filename varchar(45),
+    content_type      varchar(45),
+    size              bigint(20),
+    bytes             longblob,
+    primary key (image_id)
 );
 
 alter table card
@@ -75,6 +87,13 @@ alter table user_role
     Add constraint
         FK_user_role_User foreign key (user_id)
             references user (user_id)
+            ON UPdate cascade
+            ON delete set null;
+
+alter table card
+    Add constraint
+        FK_card_image_id foreign key (image_id)
+            references image (image_id)
             ON UPdate cascade
             ON delete set null;
 
@@ -108,4 +127,6 @@ INSERT INTO card
     (rating, ru_word_id, en_word_id)
 VALUES (11, 1, 1),
        (20, 2, 2);
+
+
 

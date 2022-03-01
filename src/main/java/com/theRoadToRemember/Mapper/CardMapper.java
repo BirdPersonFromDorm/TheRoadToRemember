@@ -12,4 +12,6 @@ public interface CardMapper {
     @Mapping(source = "enWord", target = "enWord")
     @Mapping(source = "ruWord", target = "ruWord")
     CardDTO toDTO(Card card);
+
+    Card toEntity (CardDTO cardDTO);
 }

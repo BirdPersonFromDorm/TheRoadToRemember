@@ -23,4 +23,7 @@ public class Card {
     @ManyToOne
     @JoinColumn(name = "ru_word_id")
     private RuWord ruWord;
+    @OneToOne
+    @JoinColumn(name = "image_id")
+    private Image image;
 }

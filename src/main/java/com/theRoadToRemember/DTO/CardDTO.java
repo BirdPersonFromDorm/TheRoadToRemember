@@ -17,4 +17,5 @@ public class CardDTO {
     private Long rating;
     private EnWordDTO enWord;
     private RuWordDTO ruWord;
+    private ImageDTO image;
 }

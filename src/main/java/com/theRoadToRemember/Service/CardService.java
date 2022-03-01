@@ -15,4 +15,7 @@ public class CardService {
         return cardRepository.getById(id);
     }
 
+    public Card addCard(Card card) {
+        return cardRepository.save(card);
+    }
 }
